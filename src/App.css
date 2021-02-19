@@ -1,38 +1,317 @@
 .App {
+  position: relative;
+  padding-top: 100px;
+}
+
+.Burger {
+  width: 100%;
+  margin: 0 auto 50px;
+  padding: 1.5rem;
+  height: 250px;
+  overflow-x: hidden;
   text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 7px 6px 18px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 6px 18px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 6px 18px -8px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (min-width: 500px) and (min-height: 400px) {
+  .Burger {
+    width: 350px;
+    height: 300px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (min-width: 500px) and (min-height: 401px) {
+  .Burger {
+    width: 450px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 700px) {
+  .Burger {
+    width: 700px;
+    height: 600px;
+  }
+}
+.BreadBottom {
+  height: 13%;
+  width: 80%;
+  background: linear-gradient(#f08e4a, #e27b36);
+  border-radius: 0 0 30px 30px;
+  box-shadow: inset -15px 0 #c15711;
+  margin: 2% auto;
+}
+
+.BreadTop {
+  height: 20%;
+  width: 80%;
+  background: linear-gradient(#bc581e, #e27b36);
+  border-radius: 50% 50% 0 0;
+  box-shadow: inset -15px 0 #c15711;
+  margin: 2% auto;
+  position: relative;
+}
+
+.Seeds1 {
+  width: 10%;
+  height: 15%;
+  position: absolute;
+  background-color: white;
+  left: 30%;
+  top: 50%;
+  border-radius: 40%;
+  transform: rotate(-20deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+
+.Seeds1:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  left: -170%;
+  top: -260%;
+  border-radius: 40%;
+  transform: rotate(60deg);
+  box-shadow: inset -1px 2px #c9c9c9;
+}
+
+.Seeds1:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  left: 180%;
+  top: -50%;
+  border-radius: 40%;
+  transform: rotate(60deg);
+  box-shadow: inset -1px -3px #c9c9c9;
+}
+
+.Seeds2 {
+  width: 10%;
+  height: 15%;
+  position: absolute;
+  background-color: white;
+  left: 64%;
+  top: 50%;
+  border-radius: 40%;
+  transform: rotate(10deg);
+  box-shadow: inset -3px 0 #c9c9c9;
+}
+
+.Seeds2:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  left: 150%;
+  top: -130%;
+  border-radius: 40%;
+  transform: rotate(90deg);
+  box-shadow: inset 1px 3px #c9c9c9;
+}
+
+.Meat {
+  width: 80%;
+  height: 8%;
+  background: linear-gradient(#7f3608, #702e05);
+  margin: 2% auto;
+  border-radius: 15px;
+}
+
+.Cheese {
+  width: 90%;
+  height: 4.5%;
+  margin: 2% auto;
+  background: linear-gradient(#f4d004, #d6bb22);
+  border-radius: 20px;
+}
+
+.Salad {
+  width: 85%;
+  height: 7%;
+  margin: 2% auto;
+  background: linear-gradient(#228c1d, #91ce50);
+  border-radius: 20px;
+}
+
+.Bacon {
+  width: 80%;
+  height: 3%;
+  background: linear-gradient(#bf3813, #c45e38);
+  margin: 2% auto;
+}
+
+.controlsContainer {
+  font-size: 32px;
+  background-color: #c45e38;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 40px auto 0;
+  padding: 2rem;
+  -webkit-box-shadow: 10px 6px 30px 8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 6px 30px 8px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 6px 30px 8px rgba(0, 0, 0, 0.75);
+}
+.controlTotal {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.OrderButton {
+  margin: 1rem auto;
+}
+.ingredient {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.ingredientName {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 12px;
+  width: 140px;
+}
+.ingredientName span {
+  display: inline-block;
+  font-weight: bold;
+}
+.ingredientControl > button,
+.OrderButton > button {
+  min-width: 50px;
+  padding: 10px 15px;
+  background-color: #f4d004;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.ingredientControl > button:hover,
+.OrderButton > button:hover {
+  min-width: 50px;
+  padding: 10px 15px;
+  background-color: #473d03;
   color: white;
+  font-size: 24px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.cover {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modal {
+  position: absolute;
+  background-color: seashell;
+  width: 32rem;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  padding: 2rem;
+  z-index: 11;
+  text-align: center;
+}
+.rel {
+  position: relative;
+}
+.modal ul {
+  width: 180px;
+  list-style: none;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal li {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+}
+.modal a {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  text-decoration: none;
+  font-size: 1.235rem;
+  color: black;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: chocolate;
+  padding: 0.5rem 1.5rem;
+  align-items: center;
+  z-index: 8;
+}
+header img {
+  width: 2.8rem;
+}
+.ham-img {
+  width: 2rem;
+  cursor: pointer;
+}
+nav a {
+  text-decoration: none;
+  margin-left: 0.6rem;
+  color: black;
+  font-size: 1.3rem;
+}
+.mobile-menu {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: chocolate;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  padding-top: 3rem;
+  overflow: hidden;
+}
+.mobile-menu a {
+  display: block;
+  margin-left: 4rem;
+  font-size: 4rem;
+}
+.mobile-menu nav {
+  margin-top: calc(100vh / 2);
+}
+
+.hidden {
+  display: none;
+}
+@media (max-width: 640px) {
+  .hidden {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+  header nav {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
   }
 }
