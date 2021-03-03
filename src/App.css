@@ -218,6 +218,7 @@
 }
 
 .modal {
+  /* display: flex; */
   position: absolute;
   background-color: seashell;
   width: 32rem;
@@ -253,6 +254,23 @@
   text-decoration: none;
   font-size: 1.235rem;
   color: black;
+}
+.modal-links {
+  display: flex;
+  justify-content: space-around;
+}
+.modal-links a {
+  margin-top: 3rem;
+  display: inline-block;
+  position: relative !important;
+}
+.modal-links a:first-child {
+  color: red;
+  font-weight: bold;
+}
+.modal-links a:last-child {
+  color: chocolate;
+  font-weight: bold;
 }
 header {
   position: fixed;
@@ -315,3 +333,78 @@ nav a {
     display: block;
   }
 }
+.active {
+  background-color: #f4d004;
+  padding: 0.65rem;
+  border-radius: 0.5rem;
+}
+.orders-title {
+  text-align: center;
+}
+.checkout-container {
+  width: 80%;
+  min-width: 30%;
+  border: 1px solid chocolate;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  margin: auto;
+  margin-top: 2rem;
+}
+.checkout-container .order {
+  display: flex;
+  justify-content: space-around;
+}
+.checkout-container h2 {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.order-btn {
+  display: block;
+  margin: 3rem auto 0;
+  padding: 0.8rem;
+  border: 1px solid chocolate;
+  border-radius: 1rem;
+  background-color: chocolate;
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.order-btn:hover {
+  border: 1px solid #f4d004;
+  background-color: #f4d004;
+  color: black;
+}
+.form {
+  margin: 0 auto;
+  width: 400px;
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-control input,
+.form-control select {
+  width: 100%;
+  margin-top: 0.2rem;
+  background-color: #ccc;
+  padding: 0.5rem;
+  border: 1px solid chocolate;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.form-control label {
+  margin-top: 1rem;
+  align-self: start;
+  color: chocolate;
+  font-size: 1rem;
+}
+.error {
+  background-color: #c45e38 !important;
+}
+/* input[type="text"] {
+  background-color: #3cbc8d;
+  color: white;
+} */

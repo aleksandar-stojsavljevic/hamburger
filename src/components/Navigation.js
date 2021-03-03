@@ -1,8 +1,11 @@
+import { NavLink } from "react-router-dom";
 const Navigation = () => {
   return (
     <nav>
-      <a href="#">Login</a>
-      <a href="#">About</a>
+      <NavLink exact to="/">
+        BurgerBuilder
+      </NavLink>
+      <NavLink to="/orders">Orders</NavLink>
     </nav>
   );
 };

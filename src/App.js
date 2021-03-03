@@ -8,6 +8,10 @@ import Header from "./components/header/Header";
 import MobileMenu from "./components/MobileMenu";
 import hamMenu from "./assets/hamMenu.svg";
 import closeIcon from "./assets/close-icon.png";
+import { BrowserRouter, Link, Route, Switch, NavLink } from "react-router-dom";
+import Checkout from "./components/checkout/Checkout";
+import Orders from "./components/orders/Orders";
+
 function App() {
   const [menu, setMenu] = useState(false);
   const icon = menu ? closeIcon : hamMenu;
@@ -74,26 +78,45 @@ function App() {
     setModal(false);
   };
 
-  return (
-    <div className="App">
-      {menu && <MobileMenu />}
-      {modal && (
-        <div>
-          <Cover closeModal={closeModal} />
-          <Modal burger={burger} total={total} closeModal={closeModal} />
-        </div>
-      )}
-      <Header icon={icon} toogleHamMenu={toogleHamMenu} />
+  const resetBurgerIngredients = () => {
+    const newBurger = burger.map((i) => {
+      i.quantity = 0;
+      return i;
+    });
+    setBurger(newBurger);
+  };
 
-      <Burger burger={burger} />
-      <Control
-        burger={burger}
-        total={total}
-        addIngredient={addIngredient}
-        removeIngredient={removeIngredient}
-        showModal={showModal}
-      />
-    </div>
+  return (
+    <BrowserRouter>
+      <div className="App">
+        {menu && <MobileMenu />}
+        {modal && (
+          <div>
+            <Cover closeModal={closeModal} />
+            <Modal burger={burger} total={total} closeModal={closeModal} />
+          </div>
+        )}
+        <Header icon={icon} toogleHamMenu={toogleHamMenu} />
+        <Switch>
+          <Route exact path="/">
+            <Burger burger={burger} />
+            <Control
+              burger={burger}
+              total={total}
+              addIngredient={addIngredient}
+              removeIngredient={removeIngredient}
+              showModal={showModal}
+            />
+          </Route>
+          <Route path="/checkout">
+            <Checkout resetBurgerIngredients={resetBurgerIngredients} />
+          </Route>
+          <Route path="/orders">
+            <Orders />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
