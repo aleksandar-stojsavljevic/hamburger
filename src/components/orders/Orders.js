@@ -3,19 +3,19 @@ import { useEffect, useState } from "react";
 
 const Orders = (props) => {
   let [data, setData] = useState({});
-
+  let burgerUser = JSON.parse(localStorage.getItem("burgerUser"));
   useEffect(() => {
+    const queryParams = `?auth=${burgerUser.idToken}&orderBy="userId"&equalTo="${burgerUser.localId}"`;
     axios
       .get(
-        "https://burgershop-256a4-default-rtdb.europe-west1.firebasedatabase.app/orders.json"
+        "https://burgershop-256a4-default-rtdb.europe-west1.firebasedatabase.app/orders.json" +
+          queryParams
       )
       .then((result) => {
         setData(result.data);
       })
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(data);
 
   const orders = Object.entries(data).map((order, idx) => {
     let ingredients = [];

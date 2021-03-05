@@ -13,10 +13,7 @@ const Control = (props) => {
       />
     );
   });
-  // let total = 0;
-  // props.burger.forEach((i) => {
-  //   total += i.price * i.quantity;
-  // });
+
   return (
     <div className="controlsContainer">
       <div className="controlTotal">

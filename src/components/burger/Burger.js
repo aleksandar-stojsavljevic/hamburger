@@ -8,9 +8,14 @@ const Burger = ({ burger }) => {
     }
   });
 
-  const ingr = ingrArray.map((ing, idx) => {
-    return <BurgerIngredients key={idx} classes={ing} />;
-  });
+  let ingr;
+  if (ingrArray.length == 0) {
+    ingr = <div>Please add ingredients</div>;
+  } else {
+    ingr = ingrArray.map((ing, idx) => {
+      return <BurgerIngredients key={idx} classes={ing} />;
+    });
+  }
 
   return (
     <div className="Burger">

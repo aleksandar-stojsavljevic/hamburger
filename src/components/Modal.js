@@ -20,6 +20,21 @@ const Modal = (props) => {
     props.closeModal();
   };
 
+  const currentTime = new Date().getTime() / 1000;
+  const burgerUser = JSON.parse(localStorage.getItem("burgerUser"));
+  let button = (
+    <Link to="/signin" onClick={() => props.closeModal()}>
+      Sign In
+    </Link>
+  );
+  if (burgerUser && burgerUser.expTime >= +currentTime) {
+    button = (
+      <Link to={link} onClick={onPass}>
+        Checkout
+      </Link>
+    );
+  }
+
   return (
     <div className="modal">
       <div className="rel">
@@ -33,9 +48,7 @@ const Modal = (props) => {
           <Link to="/" onClick={props.closeModal}>
             Cancel
           </Link>
-          <Link to={link} onClick={onPass}>
-            Checkout
-          </Link>
+          {button}
         </div>
       </div>
     </div>

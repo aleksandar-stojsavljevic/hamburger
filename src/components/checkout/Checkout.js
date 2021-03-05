@@ -2,11 +2,17 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 const Checkout = (props) => {
-  let [user, setUser] = useState({});
+  let burgerUser = JSON.parse(localStorage.getItem("burgerUser"));
+
+  let [user, setUser] = useState({
+    payMethod: "card",
+    userId: burgerUser.localId,
+  });
 
   const handleChange = (e) => {
     let sum = { ...user };
     sum[e.target.name] = e.target.value;
+
     const valid = validateForm(e.target.name, e.target.value);
     if (!valid) {
       e.target.setAttribute("class", "error");
@@ -32,7 +38,6 @@ const Checkout = (props) => {
     return v;
   };
 
-  //   console.log(user);
   const history = useHistory();
 
   let url = history.location.search;
@@ -51,7 +56,6 @@ const Checkout = (props) => {
     }
   });
   order.burger = burger;
-  //   console.log(order);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -61,18 +65,17 @@ const Checkout = (props) => {
     };
     axios
       .post(
-        "https://burgershop-256a4-default-rtdb.europe-west1.firebasedatabase.app/orders.json",
+        "https://burgershop-256a4-default-rtdb.europe-west1.firebasedatabase.app/orders.json?auth=" +
+          burgerUser.idToken,
         total
       )
       .then(() => {
-        console.log("Order successfully submitted");
         setUser({});
         document.querySelector("form").reset();
         props.resetBurgerIngredients();
         history.push("/orders");
       })
       .catch((err) => console.log(err));
-    // console.log(total);
   };
 
   return (

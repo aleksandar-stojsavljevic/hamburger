@@ -404,6 +404,12 @@ nav a {
 .error {
   background-color: #c45e38 !important;
 }
+
+.errormsg {
+  background-color: rgb(226, 147, 162);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
 /* input[type="text"] {
   background-color: #3cbc8d;
   color: white;

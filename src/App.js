@@ -11,7 +11,8 @@ import closeIcon from "./assets/close-icon.png";
 import { BrowserRouter, Link, Route, Switch, NavLink } from "react-router-dom";
 import Checkout from "./components/checkout/Checkout";
 import Orders from "./components/orders/Orders";
-
+import Signup from "./components/login/Signup";
+import Signin from "./components/login/Signin";
 function App() {
   const [menu, setMenu] = useState(false);
   const icon = menu ? closeIcon : hamMenu;
@@ -113,6 +114,12 @@ function App() {
           </Route>
           <Route path="/orders">
             <Orders />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/signin">
+            <Signin />
           </Route>
         </Switch>
       </div>
